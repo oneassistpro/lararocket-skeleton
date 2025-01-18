@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Vite;
+use App\Services\AppService;
 use Illuminate\Support\ServiceProvider;
 
 final class AppServiceProvider extends ServiceProvider
@@ -22,6 +22,8 @@ final class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Vite::prefetch(concurrency: 3);
+        AppService::tweaksDatetime();
+        AppService::tweaksLaraConfig();
+        AppService::tweaksVite();
     }
 }
