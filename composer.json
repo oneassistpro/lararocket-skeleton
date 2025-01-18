@@ -26,7 +26,8 @@
         "nunomaduro/collision": "^8.1",
         "pestphp/pest": "^3.7",
         "pestphp/pest-plugin-laravel": "^3.0",
-        "pestphp/pest-plugin-type-coverage": "^3.2"
+        "pestphp/pest-plugin-type-coverage": "^3.2",
+        "larastan/larastan":"^2.0"
     },
     "autoload": {
         "psr-4": {
