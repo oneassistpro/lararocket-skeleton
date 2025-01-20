@@ -5,6 +5,7 @@ declare(strict_types=1);
 use App\Models\User;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Password;
 
 test('reset password link screen can be rendered', function () {
     $response = $this->get('/forgot-password');
@@ -20,6 +21,15 @@ test('reset password link can be requested', function () {
     $this->post('/forgot-password', ['email' => $user->email]);
 
     Notification::assertSentTo($user, ResetPassword::class);
+});
+
+test('password reset link can be requested once within throttle limit', function () {
+    $user = User::factory()->create();
+
+    $this->post('/forgot-password', ['email' => $user->email]);
+    $response = $this->post('/forgot-password', ['email' => $user->email]);
+
+    $response->assertInvalid(['email' => trans(Password::RESET_THROTTLED)]);
 });
 
 test('reset password screen can be rendered', function () {
@@ -56,6 +66,28 @@ test('password can be reset with valid token', function () {
         $response
             ->assertSessionHasNoErrors()
             ->assertRedirect(route('login'));
+
+        return true;
+    });
+});
+
+test('password reset fails when using a valid token with an invalid email', function () {
+    Notification::fake();
+
+    $user = User::factory()->create();
+
+    $this->post('/forgot-password', ['email' => $user->email]);
+
+    Notification::assertSentTo($user, ResetPassword::class, function ($notification) {
+        $response = $this->post('/reset-password', [
+            'token' => $notification->token,
+            'email' => 'invalid-email@domain.ext',
+            'password' => 'password',
+            'password_confirmation' => 'password',
+        ]);
+
+        $response
+            ->assertInvalid(['email' => trans(Password::INVALID_USER)]);
 
         return true;
     });
