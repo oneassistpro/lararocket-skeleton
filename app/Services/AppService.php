@@ -27,13 +27,13 @@ final class AppService
     public static function tweaksDatetime(): void
     {
         Carbon::macro('toStringDate', function () {
-            return $this->format('Y-m-d'); // @phpstan-ignore variable.undefined
+            return $this->format('Y-m-d'); // @phpstan-ignore variable.undefined, method.nonObject
         });
         Carbon::macro('toStringTime', function () {
-            return $this->format('h:i A'); // @phpstan-ignore variable.undefined
+            return $this->format('h:i A'); // @phpstan-ignore variable.undefined, method.nonObject
         });
         Carbon::macro('toStringDatetime', function () {
-            return $this->format('Y-m-d h:i A'); // @phpstan-ignore variable.undefined
+            return $this->format('Y-m-d h:i A'); // @phpstan-ignore variable.undefined, method.nonObject
         });
 
         // CarbonImmutable as default
