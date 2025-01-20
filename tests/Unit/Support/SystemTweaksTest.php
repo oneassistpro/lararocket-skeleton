@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-use App\Services\AppService;
+use App\Support\SystemTweaks;
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Facades\Date;
 
 test('ensures tweaksDatetime adds macros and sets CarbonImmutable as default', function () {
-    AppService::tweaksDatetime();
+    SystemTweaks::date();
 
     $date = Date::parse('2025-01-01 12:00 PM');
     expect($date->toStringDate())
