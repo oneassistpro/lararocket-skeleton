@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use App\Services\AppService;
+use App\Support\SystemTweaks;
 use Illuminate\Support\ServiceProvider;
 
 final class AppServiceProvider extends ServiceProvider
@@ -22,8 +22,11 @@ final class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        AppService::tweaksDatetime();
-        AppService::tweaksLaraConfig();
-        AppService::tweaksVite();
+        SystemTweaks::dbCommands();
+        SystemTweaks::urls();
+        SystemTweaks::date();
+        SystemTweaks::models();
+        SystemTweaks::resources();
+        SystemTweaks::vite();
     }
 }
