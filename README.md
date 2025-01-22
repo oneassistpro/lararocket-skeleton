@@ -1,66 +1,108 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p align="center"><a href="https://github.com/oneassistpro/lararocket-skeleton" target="_blank"><img src="public/assets/lara-rocket-logo.png" width="400" alt="Lara Rocket Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**LaraRocket-Skeleton** is a ready-to-use web application skeleton built with a modern stack, including Laravel, InertiaJS, VueJS, and Laravel Breeze for authentication. It comes pre-configured with a suite of developer-friendly tools to streamline your workflow, letting you focus entirely on your application's development.
 
-## About Laravel
+**LaraRocket-Skeleton** is designed to simplify the process of starting a new project. It eliminates the repetitive setup tasks and provides a solid foundation for developers to jump straight into base development.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🌟 Features
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Laravel Framework: Robust and scalable backend framework.
+- InertiaJS + VueJS: Build dynamic, reactive, and modern web apps without the complexity of a full SPA.
+- Laravel Breeze: Pre-configured authentication with clean scaffolding.
+- PestPHP: Includes 100% test coverage for reliable and maintainable code.
+- PHPStan: Configured at level 9 with zero errors for maximum static code analysis.
+- Laravel Pint: Ensures consistent coding style with standard code formatting.
+- Rector: Automates code refactoring for modern, clean, and optimized code.
+- 100% TypeScript: Ensures type safety, improved code quality, and enhanced developer experience.
+- Pre-configured Setup: Optimized for starting new projects effortlessly and more.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🚀 Quick Start
 
-## Learning Laravel
+- Clone the repository:
+    ```bash
+    git clone https://github.com/oneassistpro/lararocket-skeleton.git your-app-name
+    cd your-app-name
+    ```
+- Install dependencies:
+    ```bash
+    composer install
+    npm install
+    ```
+- Set up environment variables:
+    ```bash
+    cp .env.example .env
+    ```
+- Generate application key:
+    ```bash
+    php artisan key:generate
+    ```
+- Run migrations:
+    ```bash
+    php artisan migrate
+    ```
+- Start development tools:
+    ```bash
+    composer run dev
+    ```
+- You're all set! 🎉 Open the application at http://localhost:8000.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🛠️ Development Tools
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- Run Rector - Automate code refactoring to improve and modernize your codebase:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+    ```bash
+    ./vendor/bin/rector
+    ```
 
-## Laravel Sponsors
+- Run PHPStan - Perform static analysis to catch potential issues:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+    ```bash
+    ./vendor/bin/phpstan
+    ```
 
-### Premium Partners
+- Format Code - Ensure your code adheres to the defined standards:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+    ```bash
+    ./vendor/bin/pint
+    ```
 
-## Contributing
+- Run Tests - Execute the test suite with PestPHP:
+    ```bash
+    ./vendor/bin/pest
+    ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 📘 Insights
 
-## Code of Conduct
+### File: App\Support\SystemTweaks.php
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+    - models(): Enables mass assignment with Model::unguard() and enforces strict mode using Model::shouldBeStrict() to ensure robust model handling.
 
-## Security Vulnerabilities
+    - resources(): Ensures all JsonResource instances are returned without default wrapping for cleaner and more predictable responses.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+    - date():Adds macros to the Carbon class for standardized date and time formatting:
+            -toStringDate(): Formats the date as Y-m-d.
+            -toStringTime(): Formats the time as h:i A.
+            -toStringDatetime(): Formats the date and time as Y-m-d h:i A.
+            -Sets CarbonImmutable as the default date handling class with Date::use(CarbonImmutable::class).
 
-## License
+    - dbCommands(): Prohibits destructive database commands in a production environment using DB::prohibitDestructiveCommands()
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    - vite(): Configures Vite to prefetch assets with a concurrency limit of 3 using Vite::prefetch().
+
+    - urls(): Forces all application URLs to use the https scheme via URL::forceScheme('https')
+
+### File: App\Support\Helper.php
+
+This file is autoloaded using Composer's PSR-4 standard, ensuring seamless integration and accessibility throughout the application.
+
+## 💡 Contributions
+
+Contributions are welcome! Feel free to fork the repository, create a new branch, and submit a pull request. Please ensure all new features include appropriate tests.
+
+#
+
+Simplify your next project with **LaraRocket-Skeleton** 🚀 and focus on what truly matters—building great applications!
+
+```
+
+```
