@@ -1,4 +1,4 @@
-<p align="center"><a href="https://github.com/oneassistpro/lararocket-skeleton" target="_blank"><img src="public/assets/lara-rocket-logo.png" width="400" alt="Lara Rocket Logo"></a></p>
+<p align="center"><a href="https://github.com/oneassistpro/lararocket-skeleton" target="_blank"><img src="public/assets/lara-rocket-logo.png" width="300" alt="Lara Rocket Logo"></a></p>
 
 **LaraRocket-Skeleton** is a ready-to-use web application skeleton built with a modern stack, including Laravel, InertiaJS, VueJS, and Laravel Breeze for authentication. It comes pre-configured with a suite of developer-friendly tools to streamline your workflow, letting you focus entirely on your application's development.
 
@@ -102,7 +102,3 @@ Contributions are welcome! Feel free to fork the repository, create a new branch
 #
 
 Simplify your next project with **LaraRocket-Skeleton** 🚀 and focus on what truly matters—building great applications!
-
-```
-
-```
