@@ -19,10 +19,14 @@
 ## 🚀 Quick Start
 
 - Clone the repository:
+
     ```bash
     git clone https://github.com/oneassistpro/lararocket-skeleton.git your-app-name
     cd your-app-name
     ```
+
+    > Note: You can remove the existing Git initialization and start fresh with the following command: `rm -rf .git && git init`
+
 - Install dependencies:
     ```bash
     composer install
@@ -75,21 +79,20 @@
 
 ### File: App\Support\SystemTweaks.php
 
-    - models(): Enables mass assignment with Model::unguard() and enforces strict mode using Model::shouldBeStrict() to ensure robust model handling.
+- `models()`: Enables mass assignment with `Model::unguard()` and enforces strict mode using `Model::shouldBeStrict()` to ensure robust model handling.
 
-    - resources(): Ensures all JsonResource instances are returned without default wrapping for cleaner and more predictable responses.
+- `resources()`: Ensures all JsonResource instances are returned without default wrapping for cleaner and more predictable responses.
 
-    - date():Adds macros to the Carbon class for standardized date and time formatting:
-            -toStringDate(): Formats the date as Y-m-d.
-            -toStringTime(): Formats the time as h:i A.
-            -toStringDatetime(): Formats the date and time as Y-m-d h:i A.
-            -Sets CarbonImmutable as the default date handling class with Date::use(CarbonImmutable::class).
+- `date()`:Adds macros to the Carbon class for standardized date and time formatting: -`toStringDate()`: Formats the date as Y-m-d. -`toStringTime()`: Formats the time as h:i A. -`toStringDatetime()`: Formats the date and time as Y-m-d h:i A.
+  -Sets CarbonImmutable as the default date handling class with `Date::use(CarbonImmutable::class)`.
 
-    - dbCommands(): Prohibits destructive database commands in a production environment using DB::prohibitDestructiveCommands()
+- `dbCommands()`: Prohibits destructive database commands in a production environment using `DB::prohibitDestructiveCommands()`
 
-    - vite(): Configures Vite to prefetch assets with a concurrency limit of 3 using Vite::prefetch().
+- `vite()`: Configures Vite to prefetch assets with a concurrency limit of 3 using `Vite::prefetch()`.
 
-    - urls(): Forces all application URLs to use the https scheme via URL::forceScheme('https')
+- `urls()`: Forces all application URLs to use the https scheme via `URL::forceScheme('https')`
+
+> Note: By default, both tweaks are added to the `AppServiceProvider.php`. However, you can modify it if needed.
 
 ### File: App\Support\Helper.php
 
